@@ -1,0 +1,44 @@
+library(readr)
+library(dplyr)
+library(readr)
+
+X104MonthSalary <- read_csv("C:/Users/asus/Desktop/Bigdatahw1/a17000000j-020066-mah.csv")
+X107MonthSalary <- read_csv("C:/Users/asus/Desktop/Bigdatahw1/107MonthSalary.csv")
+
+View(X104MonthSalary)
+View(X107MonthSalary)
+
+X104MonthSalary$大職業別<-
+  gsub("、","_",X104MonthSalary$大職業別)
+X107MonthSalary$大職業別<-
+  gsub("、","_",X107MonthSalary$大職業別)
+
+X104107MonthSalary<-inner_join(X104MonthSalary,X107MonthSalary ,by="大職業別")
+
+View(X104107MonthSalary)
+X104107MonthSalary$`大學-薪資.x`<-gsub("—",NA,X104107MonthSalary$`大學-薪資.x`)
+X104107MonthSalary$`大學-薪資.y`<-gsub("—",NA,X104107MonthSalary$`大學-薪資.y`)
+X104107MonthSalary$`大學-薪資.y`<-gsub("…",NA,X104107MonthSalary$`大學-薪資.y`)
+
+X104107MonthSalary$`大學-薪資.x`<-as.numeric(X104107MonthSalary$`大學-薪資.x`)
+X104107MonthSalary$`大學-薪資.y`<-as.numeric(X104107MonthSalary$`大學-薪資.y`)
+
+higher107<-filter(X104107MonthSalary,`大學-薪資.y`>`大學-薪資.x`)
+X104107MonthSalary$higherin107 <- higher107
+
+X104107MonthSalary_ratesort<-mutate(X104107MonthSalary,Rate=`大學-薪資.y`/`大學-薪資.x`)%>%arrange(desc(Rate))
+
+X104_107top10
+<-select(X104107MonthSalary_ratesort,大職業別,年度.x,`大學-薪資.x`,年度.y,`大學-薪資.y`)%>%head(10)
+knitr::kable(X104_107top10)
+
+X104107MonthSalary <- mutate(X104107MonthSalary ,Rate=`大學-薪資.y`/`大學-薪資.x`)%>%arrange(desc(Rate))
+over1.05<-filter(X104107MonthSalary,Rate>1.05)
+over1.05<-filter(X104107MonthSalary,Rate>1.05)%>%select(大職業別,Rate)
+knitr::kable(over1.05)
+
+FMhigher104 <- filter(X104MonthSalary,`大學-女/男`>100)%>% arrange(`大學-女/男`)
+
+FMheadin104<-head(FMhigher104,10)
+knitr::kable(FMheadin104)
+

@@ -1,0 +1,33 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1590390340504.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "3C6BF6F5",
+    "lastKnownWriteTime" : 1590388150,
+    "last_content_update" : 1590390340504,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "F905EBC3",
+        "caption" : "X104MonthSalary",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=X104MonthSalary&cache_key=F905EBC3",
+        "displayedObservations" : 140,
+        "environment" : "",
+        "expression" : "X104MonthSalary",
+        "object" : "X104MonthSalary",
+        "preview" : 0,
+        "totalObservations" : 140,
+        "variables" : 14
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

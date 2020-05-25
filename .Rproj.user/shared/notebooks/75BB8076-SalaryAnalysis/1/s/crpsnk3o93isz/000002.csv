@@ -1,0 +1,5 @@
+"0","#用select()選出所要的欄位，並選出前十筆
+X104_107top10 < -select(X104107MonthSalary_ratesort,大職業別,年度.x,`大學-薪資.x`,年度.y,`大學-薪資.y`)%>%head(10)
+"
+"2","Error in FUN(left) : 一元運算子的引數不正確
+"

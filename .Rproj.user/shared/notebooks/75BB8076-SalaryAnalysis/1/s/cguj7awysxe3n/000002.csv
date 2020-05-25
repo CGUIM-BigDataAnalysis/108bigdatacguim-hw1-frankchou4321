@@ -1,0 +1,5 @@
+"0","#將薪資資料轉為numeric
+X104107MonthSalary$`大學-薪資.x`<-as.numeric(X104107MonthSalary$`大學-薪資.x`)
+"
+"2","錯誤: 無效的多位元組字串於 '<e2><94>'
+"
